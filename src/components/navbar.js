@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export function Navbar() {
   return (
@@ -6,8 +6,10 @@ export function Navbar() {
       <Link to="/">
         <h1 className="text-3xl text-center">Books</h1>
       </Link>
-      
-      <Link to="/user-bookshelf" className="p-2 bg-blue-200 rounded-md">My Bookshelf</Link>
+
+      <Link to="/user-bookshelf" className="p-2 bg-blue-200 rounded-md">
+        My Bookshelf
+      </Link>
     </div>
   )
 }

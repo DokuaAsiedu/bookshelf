@@ -1,17 +1,17 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, UserBookShelf } from "./pages";
-import { MyBookshelfProvider } from "./providers/bookmarks-store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Home, UserBookShelf } from "./pages"
+import { MyBookshelfProvider } from "./providers/bookmarks-store"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Home />,
   },
   {
     path: "/user-bookshelf",
-    element: <UserBookShelf/>,
+    element: <UserBookShelf />,
   },
-]);
+])
 
 function App() {
   return (
@@ -21,4 +21,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

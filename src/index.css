@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'toastr';
+@import "toastr";
 
 body {
   @apply min-w-[320px];
