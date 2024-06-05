@@ -44,6 +44,7 @@ export function MyBookshelfProvider({ children }) {
     } else {
       window.localStorage.setItem("bookmarks", bookmarks)
     }
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
