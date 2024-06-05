@@ -23,6 +23,20 @@ export function MyBookshelfProvider({children}) {
     toastr.success(`Successfully added ${book.title} to your bookshelf`)
   }
 
+  const deleteBookmark = (book_key) => {
+    const book = bookmarks.find(item => item.key === book_key)
+
+    if (book) {
+      const newBookmarks = bookmarks.filter(item => item.key !== book_key)
+      setBookmarks(newBookmarks)
+      window.localStorage.setItem('bookmarks', JSON.stringify(newBookmarks))
+      toastr.success(`Removed ${book.title} from your bookshelf`)
+    }
+    else {
+      toastr.error("Sorry, something went wrong. Please try again later.")
+    }
+  }
+
   useEffect(() => {
     const storage = window.localStorage.getItem('bookmarks')
     
@@ -51,7 +65,7 @@ export function MyBookshelfProvider({children}) {
   }, [bookmarks])
 
   return (
-    <MyBookshelfContext.Provider value={{bookmarks, addBookmark, bookcovers}}>
+    <MyBookshelfContext.Provider value={{bookmarks, addBookmark, bookcovers, deleteBookmark}}>
       {children}
     </MyBookshelfContext.Provider>
   )

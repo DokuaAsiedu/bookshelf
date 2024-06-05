@@ -10,7 +10,7 @@ export function UserBookShelf() {
       <h2 className="text-2xl text-center">My Bookmarks</h2>
 
       {bookmarks.length ?
-      <Booklist covers={bookcovers} books={bookmarks}/>
+      <Booklist covers={bookcovers} books={bookmarks} canDelete={true}/>
       :
       <div>
         No books here!
