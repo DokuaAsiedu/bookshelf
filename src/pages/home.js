@@ -14,7 +14,7 @@ export function Home() {
 
   const handleQuery = (e) => {
     const val = e.target.value
-    console.log(val)
+    // console.log(val)
     setQuery(val)
 
     if (val.length) {
@@ -32,11 +32,11 @@ export function Home() {
     .json()
     .then(response => {
       setLoading(false)
-      console.log(response)
+      // console.log(response)
       setSearchRes(response.docs)
     }).catch(err => {
       setLoading(false)
-      console.log(err)
+      // console.log(err)
     })
   }
 
@@ -56,6 +56,7 @@ export function Home() {
         return ""
       }
     })
+    // console.log(imageUrls)
     if (searchRes.length) {
       Promise.all(checkImages(imageUrls))
       .then(pass => {
@@ -77,7 +78,7 @@ export function Home() {
         <label htmlFor="query">Search for a book:</label>
 
         <div className="flex-1 flex items-stretch gap-2 border-[1px] border-black rounded-md overflow-hidden">
-          <input id="query" type="text" placeholder="Enter book name..." className="flex-1 p-2 outline-none" value={query} onChange={handleQuery}/>
+          <input id="query" type="text" placeholder="Enter book name..." className="flex-1 p-2 outline-none bg-transparent" value={query} onChange={handleQuery}/>
 
           <button onClick={() => setQuery("")} className="p-2 bg-transparent">
             <img src={CancelIcon} alt="clear text button" width={16}/>
