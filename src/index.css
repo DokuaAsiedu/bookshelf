@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#E2DCC5]
+  @apply min-w-[320px];
 }
