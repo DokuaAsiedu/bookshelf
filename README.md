@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Bookshelf App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Overview
+A simple app that allows users to search for books using the Open Library API and add any book to their personal bookshelf in the browser using localStorage.
 
-In the project directory, you can run:
+## Getting Started
+To run this project for the first time, run  `npm install` to install all dependencies.
 
-### `npm start`
+Afterwards, run the development server with `npm start`. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes. You may also see any lint errors in the console.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The app has two pages:
+- A homepage at [http://localhost:3000/](http://localhost:3000) where you can search for books.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- A bookshelf page at [http://localhost:3000/user-bookshelf](http://localhost:3000) where you can view books you have added to your personal shelf.
 
-### `npm test`
+## Implementation
+There is a navigation bar at the top of every page which has the title, "Books" linking to the homepage and a button, "My Bookshelf" that navigates to the user's personal bookshelf.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### HomePage
+On the homepage, you will see a search bar and as you type in it, will run a get request to the Open Library API on your search query, fetch the results and display it on your screen. The results are limited to 10 and on each book that is returned you will see some information about it like the title, author(s), etc. There is an "Add to Bookshelf" button displayed on every book and clicking on this button will add the book to your shelf. If the book does not already exist in your shelf, you will get a notification saying the book has been added. If the book is already in your shelf you will be notified that the book already exists. It checks if the book exists using the book "key" which is a property that exists on every book.
 
-### `npm run build`
+### User Bookshelf Page
+On this page, every book that you have in your shelf is listed here. The books are stored in the browser's localstorage and are then loaded in into the state. This state exists as a context that is wrapped around the entire app and so can be accessed on any page. In the `providers/bookmarks-store.js` file, you will find the bookmarks being loaded from localstorage if there already exists a bookmark key or it creates the key in localstorage if it is not there. You will also find the "addBookmark" and "deleteBookmark" functions which, again, since they are provided in the context can be accessed any where in the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+😊 Thank you!
